@@ -3,5 +3,43 @@
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  // TODO
+  // voice generation within the dropdown
+  const synth = window.speechSynthesis;
+  const voiceSelect = document.getElementById("voice-select")
+  let voices = [];
+  function populateVoiceList() {
+    voices = synth.getVoices();
+
+    for (const voice of voices) {
+      const option = document.createElement("option");
+      option.textContent = `${voice.name} (${voice.lang})`;
+
+      if (voice.default) {
+        option.textContent += " — DEFAULT";
+      }
+
+      option.setAttribute("data-lang", voice.lang);
+      option.setAttribute("data-name", voice.name);
+      voiceSelect.appendChild(option);
+    }
+  }
+  populateVoiceList();
+
+  //Press to talk function
+  const clickToPlay = document.querySelector("button");
+  clickToPlay.addEventListener("click", ()=>{
+    const textToSpeak =  document.getElementsByName("text-to-speak").value;
+    const smilingImage = document.querySelector("img");
+
+    const messageObject = new SpeechSynthesisUtterance(textToSpeak);
+
+    //Finding the index the new value is from, since it would mtach the voices list given
+    const voices = speechSynthesis.getVoices();
+    const index = document.getElementsByName("voice").value; 
+    messageObject.voice = voices[index];
+
+    //Speaking it
+    speechSynthesis.speak(messageObject);
+
+  })
 }

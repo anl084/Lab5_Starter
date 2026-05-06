@@ -31,7 +31,7 @@ function init() {
 
   //adding the right images, chnaging volume
   const volumeInput = document.querySelector("input");
-  volumeInput.addEventListener("input", ()=>{
+  volumeInput.addEventListener("change", ()=>{
     const audioSelect = document.querySelector('audio');
     const volume = volumeInput.value;
     audioSelect.volume = volume/100;
