@@ -1,10 +1,10 @@
 // expose.js
+import JSConfetti from 'js-confetti';
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  import JSConfetti from 'js-confetti';
   // Select dropdown change audio plus photo event
-  const input = document.getElementsByName("horn");
+  const input = document.querySelector('select[name="horn"]');
   input.addEventListener("input", () => {
     const value = input.value;
     const photo = "./assets/images/" + value + ".svg";
@@ -21,7 +21,7 @@ function init() {
   //play music when press button, confetti in special cases
   const button =  document.querySelector("button");
   button.addEventListener("click", ()=>{
-    input = document.getElementsByName("horn").value;
+    input = document.querySelector('select[name="horn"]').value;
     if(input == "party-horn"){
       const jsConfetti = new JSConfetti();
       jsConfetti.addConfetti();
