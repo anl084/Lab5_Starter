@@ -38,6 +38,15 @@ function init() {
     const index = document.getElementsByName("voice").value; 
     messageObject.voice = voices[index];
 
+    //creating the before and after changes of when the voice speaks
+    messageObject.onstart = () => {
+      smilingImage.src = "./assets/images/smiling-open.png";
+    };
+
+    messageObject.onend = () => {
+      smilingImage.src = "./assets/images/smiling.png";
+    };
+
     //Speaking it
     speechSynthesis.speak(messageObject);
 
