@@ -8,3 +8,7 @@ Anlisa Liu
     So I would say entire application testing is better. 
 
 2) Unit test for sure, because this is something that only requires one end of the application to do and this can just be tested with one side.
+
+Links to exlpore html and expose html page
+- https://anl084.github.io/Lab5_Starter/explore.html
+- https://anl084.github.io/Lab5_Starter/expose.html
