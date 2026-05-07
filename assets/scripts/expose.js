@@ -20,8 +20,8 @@ function init() {
   //play music when press button, confetti in special cases
   const button =  document.querySelector("button");
   button.addEventListener("click", ()=>{
-    input = document.querySelector('select[name="horn"]').value;
-    if(input == "party-horn"){
+    const value = input.value;
+    if(value == "party-horn"){
       const jsConfetti = new JSConfetti();
       jsConfetti.addConfetti();
     }
