@@ -25,17 +25,22 @@ function init() {
   }
   populateVoiceList();
 
+  // Some browsers load voices asynchronously
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = populateVoiceList;
+  }
+
   //Press to talk function
   const clickToPlay = document.querySelector("button");
   clickToPlay.addEventListener("click", ()=>{
     const textToSpeak = document.querySelector("select[name='text-to-speak']");
     const smilingImage = document.querySelector("img");
 
-    const messageObject = new SpeechSynthesisUtterance(textToSpeak);
+    const messageObject = new SpeechSynthesisUtterance(textToSpeak.value);
 
     //Finding the index the new value is from, since it would mtach the voices list given
     const voices = speechSynthesis.getVoices();
-    const index = document.document.querySelector("select[name='voice']").value; 
+    const index = document.querySelector("select[name='voice']").value; 
     messageObject.voice = voices[index];
 
     //creating the before and after changes of when the voice speaks
