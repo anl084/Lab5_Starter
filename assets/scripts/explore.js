@@ -26,9 +26,9 @@ function init() {
   populateVoiceList();
 
   // Some browsers load voices asynchronously
-  if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = populateVoiceList;
-  }
+  // if (speechSynthesis.onvoiceschanged !== undefined) {
+  //   speechSynthesis.onvoiceschanged = populateVoiceList;
+  // }
 
   //Press to talk function
   const clickToPlay = document.querySelector("button");
