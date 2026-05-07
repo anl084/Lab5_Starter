@@ -1,5 +1,4 @@
 // expose.js
-import JSConfetti from 'js-confetti';
 window.addEventListener('DOMContentLoaded', init);
 
 function init() {
