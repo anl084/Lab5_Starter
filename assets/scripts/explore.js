@@ -20,6 +20,7 @@ function init() {
 
       option.setAttribute("data-lang", voice.lang);
       option.setAttribute("data-name", voice.name);
+      option.value = index;
       voiceSelect.appendChild(option);
     }
   }
@@ -28,9 +29,10 @@ function init() {
   if (speechSynthesis.onvoiceschanged !== undefined) {
     speechSynthesis.onvoiceschanged = populateVoiceList;
   }
+  
   populateVoiceList();
 
-  //Press to talk function
+  // Press to talk function
   const clickToPlay = document.querySelector("button");
   clickToPlay.addEventListener("click", ()=>{
     const textToSpeak = document.querySelector("select[name='text-to-speak']");
@@ -39,7 +41,6 @@ function init() {
     const messageObject = new SpeechSynthesisUtterance(textToSpeak.value);
 
     //Finding the index the new value is from, since it would mtach the voices list given
-    const voices = speechSynthesis.getVoices();
     const index = document.getElementById("voice-select").value; 
     messageObject.voice = voices[index];
 
