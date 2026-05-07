@@ -23,6 +23,11 @@ function init() {
       voiceSelect.appendChild(option);
     }
   }
+
+  // Some browsers load voices async
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = populateVoiceList;
+  }
   populateVoiceList();
 
   //Press to talk function
