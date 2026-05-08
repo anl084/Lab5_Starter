@@ -26,8 +26,10 @@ function init() {
     }
   }
 
-  // FIX: Only populate when voices are ready
-  speechSynthesis.onvoiceschanged = populateVoiceList();
+  // Some browsers load voices async
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = populateVoiceList();
+  }
 
   // Press to talk function
   const clickToPlay = document.querySelector("button");
