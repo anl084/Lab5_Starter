@@ -9,7 +9,7 @@ function init() {
   let voices = [];
   function populateVoiceList() {
     voices = synth.getVoices();
-
+    let index  = 0;
     for (const voice of voices) {
       const option = document.createElement("option");
       option.textContent = `${voice.name} (${voice.lang})`;
@@ -21,6 +21,7 @@ function init() {
       option.setAttribute("data-lang", voice.lang);
       option.setAttribute("data-name", voice.name);
       option.value = index;
+      index++;
       voiceSelect.appendChild(option);
     }
   }
