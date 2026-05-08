@@ -42,8 +42,8 @@ function init() {
     const messageObject = new SpeechSynthesisUtterance(textToSpeak.value);
 
     //Finding the index the new value is from, since it would mtach the voices list given
-    const index = document.getElementById("voice-select").value; 
-    messageObject.voice = voices[index];
+    let index1 = voiceSelect.value; 
+    messageObject.voice = voices[index1];
 
     //creating the before and after changes of when the voice speaks
     messageObject.onstart = () => {
