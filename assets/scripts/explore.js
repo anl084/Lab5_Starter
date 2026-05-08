@@ -26,9 +26,9 @@ function init() {
     }
   }
 
-  // Some browsers load voices async
+  populateVoiceList();
   if (speechSynthesis.onvoiceschanged !== undefined) {
-    speechSynthesis.onvoiceschanged = populateVoiceList();
+    speechSynthesis.onvoiceschanged = populateVoiceList;
   }
 
   // Press to talk function
