@@ -27,7 +27,7 @@ function init() {
   }
 
   // FIX: Only populate when voices are ready
-  speechSynthesis.onvoiceschanged = populateVoiceList;
+  speechSynthesis.onvoiceschanged = populateVoiceList();
 
   // Press to talk function
   const clickToPlay = document.querySelector("button");
