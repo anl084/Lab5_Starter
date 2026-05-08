@@ -45,11 +45,11 @@ function init() {
       }
     }
 
-    utterThis.onstart = (event) => {
+    utterThis.onstart = () => {
       imageSelect.src = "assets/images/smiling-open.png";
     };
 
-    utterThis.onend = (event) => {
+    utterThis.onend = () => {
       imageSelect.src = "assets/images/smiling.png";
     };
     
